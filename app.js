@@ -1,8 +1,3 @@
-/* ─────────────────────────────────────────────────────────
-   Bar Clock — app.js
-   ───────────────────────────────────────────────────────── */
-
-// ── 5×7 pixel-font glyphs ──────────────────────────────
 const GLYPHS = {
     '0': [
         [0, 1, 1, 1, 0],
@@ -123,7 +118,6 @@ const GLYPHS = {
     ],
 };
 
-// ── Helpers ────────────────────────────────────────────
 function pad2(n) {
     return String(n).padStart(2, '0');
 }
@@ -191,7 +185,6 @@ function buildBars(str, W, H) {
     return bars;
 }
 
-// ── Interpolation ──────────────────────────────────────
 function ease(t) {
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
@@ -241,7 +234,6 @@ function interpBars(from, to, t) {
     return out;
 }
 
-// ── Canvas setup ───────────────────────────────────────
 const canvas = document.getElementById('clock-canvas');
 const ctx = canvas.getContext('2d');
 
@@ -255,7 +247,6 @@ window.addEventListener('resize', () => {
     forceRebuild();
 });
 
-// ── State ──────────────────────────────────────────────
 const TRANSITION_MS = 900;
 const TIME_SHOW_MS = 10000;
 const DATE_SHOW_MS = 5000;
@@ -266,7 +257,7 @@ const st = {
     target: [],
     transitioning: false,
     transStart: 0,
-    mode: 'time', // 'time' | 'date'
+    mode: 'time',
     lastStr: '',
 };
 
@@ -293,7 +284,6 @@ function forceRebuild() {
     st.lastStr = s;
 }
 
-// Init
 const initStr = getTimeStr();
 st.target = buildBars(initStr, canvas.width, canvas.height);
 st.from = st.target.map(b => ({
@@ -307,7 +297,6 @@ st.lastStr = initStr;
 st.transitioning = true;
 st.transStart = performance.now();
 
-// ── Scheduling ─────────────────────────────────────────
 let phaseTimeout = null;
 
 function scheduleNext() {
@@ -328,7 +317,6 @@ function scheduleNext() {
 }
 scheduleNext();
 
-// Live clock tick (only in time mode, after transition settles)
 setInterval(() => {
     if (st.mode === 'time' && !st.transitioning) {
         const s = getTimeStr();
@@ -336,17 +324,14 @@ setInterval(() => {
     }
 }, 1000);
 
-// ── HUD ────────────────────────────────────────────────
 const hudLabel = document.getElementById('hud-label');
 const modeBtn = document.getElementById('hud-mode-btn');
 const cornerLbl = document.getElementById('corner-label');
 
-// Inject pulse dot into HUD
 const dot = document.createElement('span');
 dot.className = 'pulse-dot';
 hudLabel.prepend(dot);
 
-// Progress ring
 const progressWrap = document.createElement('div');
 progressWrap.id = 'progress-wrap';
 progressWrap.innerHTML = `<svg viewBox="0 0 32 32" width="32" height="32">
@@ -369,7 +354,6 @@ function updateHUD() {
 }
 updateHUD();
 
-// Manual toggle
 function manualToggle() {
     clearTimeout(phaseTimeout);
     st.mode = st.mode === 'time' ? 'date' : 'time';
@@ -383,12 +367,10 @@ modeBtn.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') manualToggle();
 });
 
-// ── Draw ───────────────────────────────────────────────
 const BAR_COLOR = '#3a5c3a';
 const GRID_COLOR = 'rgba(60,100,60,0.07)';
 
 function draw(now) {
-    // Transition
     if (st.transitioning) {
         const t = (now - st.transStart) / TRANSITION_MS;
         st.bars = interpBars(st.from, st.target, t);
@@ -400,11 +382,9 @@ function draw(now) {
         }
     }
 
-    // Clear
     ctx.fillStyle = '#f0f7f0';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Grid lines
     const nCols = Math.floor(canvas.width / 11);
     for (let i = 0; i < nCols; i++) {
         const x = i * (canvas.width / nCols) + (canvas.width / nCols) / 2;
@@ -416,7 +396,6 @@ function draw(now) {
         ctx.stroke();
     }
 
-    // Bars
     ctx.fillStyle = BAR_COLOR;
     for (const b of st.bars) {
         if (b.h < 0.5) continue;
@@ -425,7 +404,6 @@ function draw(now) {
         ctx.fill();
     }
 
-    // Progress ring
     const elapsed = (now - cycleStart) % CYCLE_MS;
     const frac = elapsed / CYCLE_MS;
     progressFill.style.strokeDashoffset = CIRC * (1 - frac);
@@ -433,7 +411,6 @@ function draw(now) {
     requestAnimationFrame(draw);
 }
 
-// Rounded rect helper
 function roundRect(c, x, y, w, h, r) {
     if (c.roundRect) {
         c.beginPath();
@@ -455,7 +432,6 @@ function roundRect(c, x, y, w, h, r) {
 
 requestAnimationFrame(draw);
 
-// ── Service Worker ─────────────────────────────────────
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js').catch(() => {});
 }

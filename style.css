@@ -1,4 +1,3 @@
-/* Import Google font - Comfortaa */
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@200;300;400;500;600;700&display=swap");
 
 * {
@@ -7,19 +6,10 @@
   box-sizing: border-box;
   font-family: "Comfortaa", sans-serif;
 
-  /* Chrome and Opera */
   user-select: none;
-
-  /* Safari */
   -webkit-user-select: none;
-
-  /* Konqueror HTML */
   -khtml-user-select: none;
-
-  /* Firefox */
   -moz-user-select: none;
-
-  /* Internet Explorer/Edge */
   -ms-user-select: none;
 }
 
@@ -31,7 +21,6 @@
   color: #66f;
 }
 
-/* ── Reset & base ───────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -67,7 +56,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Canvas ─────────────────────────────────────────── */
 #clock-canvas {
   position: fixed;
   inset: 0;
@@ -76,7 +64,6 @@ body {
   display: block;
 }
 
-/* ── Liquid Glass HUD (top bar) ──────────────────────── */
 #hud {
   position: fixed;
   top: max(16px, env(safe-area-inset-top));
@@ -92,7 +79,6 @@ body {
   padding: 10px 22px;
   min-width: 220px;
 
-  /* Liquid glass */
   background: var(--glass-bg);
   border: 1.5px solid var(--glass-border);
   border-radius: 999px;
@@ -103,7 +89,6 @@ body {
   backdrop-filter: blur(20px) saturate(1.6);
   -webkit-backdrop-filter: blur(20px) saturate(1.6);
 
-  /* smooth appear */
   animation: hud-appear 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -125,7 +110,6 @@ body {
   gap: 8px;
 }
 
-/* Animated mode badge */
 #hud-label {
   font-size: 11px;
   font-weight: 700;
@@ -146,7 +130,6 @@ body {
   color: #2a5080;
 }
 
-/* Toggle button */
 #hud-mode-btn {
   cursor: pointer;
   font-size: 17px;
@@ -165,7 +148,6 @@ body {
   outline: none;
 }
 
-/* ── Corner ambient label ────────────────────────────── */
 #corner-label {
   position: fixed;
   bottom: max(18px, env(safe-area-inset-bottom));
@@ -180,7 +162,6 @@ body {
   transition: opacity 1s;
 }
 
-/* ── Progress ring overlay ───────────────────────────── */
 #progress-wrap {
   position: fixed;
   bottom: max(18px, env(safe-area-inset-bottom));
@@ -212,7 +193,6 @@ body {
   transition: stroke-dashoffset 0.3s linear;
 }
 
-/* ── Pulse dot ───────────────────────────────────────── */
 .pulse-dot {
   display: inline-block;
   width: 7px;
