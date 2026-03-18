@@ -162,7 +162,7 @@ function buildBars(str, W, H) {
     const cellH = H / 9;
 
     const cols = {};
-    for (const p of px)(cols[p.col] ? ? = []).push(p.row);
+    for (const p of px)(cols[p.col] ??= []).push(p.row);
 
     const bars = [];
     for (const [cStr, rows] of Object.entries(cols)) {
