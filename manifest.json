@@ -26,6 +26,12 @@
       "type": "image/png",
       "sizes": "1920x1080",
       "form_factor": "wide"
+    },
+    {
+      "src": "/images/screenshot_3.png",
+      "type": "image/png",
+      "sizes": "2340x1080",
+      "form_factor": "wide"
     }
   ],
   "start_url": "/",
