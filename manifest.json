@@ -44,7 +44,7 @@
     "window-controls-overlay"
   ],
   "orientation": "landscape-primary",
-  "id": "barclock-offline",
+  "id": "barclock",
   "dir": "ltr",
   "scope": "/",
   "lang": "en",
