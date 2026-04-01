@@ -4,9 +4,14 @@
   "description": "A simple bar clock app; view live time that looks like bars!",
   "icons": [
     {
-      "src": "barclockicon.png",
+      "src": "barclockicon-512.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "barclockicon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
     }
   ],
   "screenshots": [
