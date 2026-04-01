@@ -1,34 +1,41 @@
 {
-    "name": "Bar Clock by UwU Apps",
-    "short_name": "UwU Bar Clock",
-    "description": "A simple bar clock app; view live time that looks like bars!",
-    "icons": [{
-        "src": "barclockicon.png",
-        "type": "image/png",
-        "sizes": "512x512"
+  "name": "Bar Clock by UwU Apps",
+  "short_name": "UwU Bar Clock",
+  "description": "A simple bar clock app; view live time that looks like bars!",
+  "icons": [
+    {
+      "src": "barclockicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
     },
     {
-        "src": "barclockicon.png",
-        "type": "image/png",
-        "sizes": "192x192"
-    }],
-    "screenshots": [{
-            "src": "/images/screenshot_1.png",
-            "type": "image/png",
-            "sizes": "1080x2224",
-            "form_factor": "narrow"
-        },
-        {
-            "src": "/images/screenshot_2.png",
-            "type": "image/png",
-            "sizes": "1920x1080",
-            "form_factor": "wide"
-        }
-    ],
-    "start_url": "/",
-    "theme_color": "#cfc",
-    "background_color": "#cfc",
-    "display": "standalone",
-    "display_override": ["fullscreen", "minimal-ui", "window-controls-overlay"],
-    "orientation": "landscape-primary"
+      "src": "barclockicon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshot_1.png",
+      "type": "image/png",
+      "sizes": "1080x2224",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/images/screenshot_2.png",
+      "type": "image/png",
+      "sizes": "1920x1080",
+      "form_factor": "wide"
+    }
+  ],
+  "start_url": ".",
+  "theme_color": "#cfc",
+  "background_color": "#cfc",
+  "display": "standalone",
+  "display_override": [
+    "fullscreen",
+    "minimal-ui",
+    "window-controls-overlay"
+  ],
+  "orientation": "landscape-primary"
 }
