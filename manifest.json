@@ -28,7 +28,7 @@
       "form_factor": "wide"
     }
   ],
-  "start_url": "barclock.uwuapps.org",
+  "start_url": "/",
   "theme_color": "#cfc",
   "background_color": "#cfc",
   "display": "standalone",
