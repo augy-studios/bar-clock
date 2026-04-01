@@ -28,7 +28,7 @@
       "form_factor": "wide"
     }
   ],
-  "start_url": ".",
+  "start_url": "barclock.uwuapps.org",
   "theme_color": "#cfc",
   "background_color": "#cfc",
   "display": "standalone",
@@ -37,5 +37,14 @@
     "minimal-ui",
     "window-controls-overlay"
   ],
-  "orientation": "landscape-primary"
+  "orientation": "landscape-primary",
+  "id": "barclock-offline",
+  "dir": "ltr",
+  "scope": "/",
+  "lang": "en",
+  "categories": [
+    "entertainment",
+    "lifestyle",
+    "utilities"
+  ]
 }
