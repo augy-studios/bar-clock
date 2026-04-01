@@ -6,19 +6,26 @@
         "src": "barclockicon.png",
         "type": "image/png",
         "sizes": "512x512"
+    },
+    {
+        "src": "barclockicon.png",
+        "type": "image/png",
+        "sizes": "192x192"
     }],
     "screenshots": [{
             "src": "/images/screenshot_1.png",
             "type": "image/png",
-            "sizes": "1080x2224"
+            "sizes": "1080x2224",
+            "form_factor": "narrow"
         },
         {
             "src": "/images/screenshot_2.png",
             "type": "image/png",
-            "sizes": "1920x1080"
+            "sizes": "1920x1080",
+            "form_factor": "wide"
         }
     ],
-    "start_url": ".",
+    "start_url": "/",
     "theme_color": "#cfc",
     "background_color": "#cfc",
     "display": "standalone",
